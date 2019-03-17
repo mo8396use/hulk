@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
+  	<link href="/assets/Happy Hulks.ico" rel="shortcut icon">
+	<title>Hulk-短地址服务</title>
+</head>
+<body style="padding-top:60px;padding-bottom:40px;">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container" style="width:95%;">
+				<div>
+					<a class="navbar-brand" href="/">
+ 						<span style="margin-top:4px;font-family:'Stardos Stencil',cursive;font-size:1.3em;color:#fff;">H</span>
+						<span style="margin-left:-5px;margin-top:2px;font-family:'Stardos Stencil',cursive;font-size:1.3em;">ulk</span>
+					</a>
+				</div>
+				<ul class="nav" style="font-size:16px;padding-top:5px">
+					<li style="float:left" class="<%= 'active_nav' %>">
+						<a id="tools_drop" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false" style="color:#478A10;">管理平台<span class="caret"></span>
+						</a >
+						<ul class="dropdown-menu" style="" role="menu" aria-labelledby="tools_drop">
+							<li class="nav_dropdown_li active_nav">
+								<a style="padding-top:9px;color:#478A10;" class="nav_dropdown_a" href="/admin"><span class="nav_span">管理平台</span></a>
+							</li>
+							<li class="nav_dropdown_li active_nav">
+								<a style="padding-top:9px;color:#478A10;" class="nav_dropdown_a" href="/customer"><span class="nav_span">自定义短链</span></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container" style="width:95%">
+		<%= yield %>
+	</div>
+</body>
+</html>

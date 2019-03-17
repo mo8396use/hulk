@@ -1,0 +1,65 @@
+<div class="benefits container" style="padding-top:20px">
+	<div class="container" style="padding-left: 15px;margin-left: 400px;">
+		<img src="/assets/Happy Hulks.ico" style="height: 300px;	">
+	</div>
+	<br />
+	<div class="">
+		<form class="form-horizontal" id="gen_short_url" method="post" action="short_url/create_short_url" data-remote="true">
+			<div class="switch" style="margin-left: 300px;">
+				<input id="url_switch" name="url_switch" type="checkbox" checked />
+			</div>
+			<br />
+			<div class="col-md-6 col-md-offset-3">
+				<div id="short_url_input_div">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon3">https://example.com</span>
+						<input class="form-control" id="long_url_input" name="long_url_input" type="text" />
+						<span class="input-group-btn">
+							<button class="btn btn-primary" style="background-color:#478A10;border-color: #478A10;"type="submit" id="btn_submit_long">网址缩短</button>
+						</span>
+					</div>
+					<div id="show_short_url"></div>
+				</div>
+				<div id="long_url_input_div">
+					<div class="input-group" id="transfer_long">
+						<span class="input-group-addon" id="basic-addon3">http://lh.cn/er5trg</span>
+						<input class="form-control" id="short_url_input" name="short_url_input" type="text" />
+						<span class="input-group-btn">
+							<button class="btn btn-primary" style="background-color:#478A10;border-color: #478A10;"type="submit" id="btn_submit_short">网址还原</button>
+						</span>
+					</div>
+					<div id="show_long_url"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$("#long_url_input_div").hide();
+	});
+	var toShortUrl = true;
+	$("#url_switch").bootstrapSwitch({
+		onText: "缩短网址",
+		offText: "还原网址",
+		onColor: "info",
+		offColor: "success",
+		onSwitchChange:function(event, state) {
+			toShortUrl = !toShortUrl;
+			if(toShortUrl) {
+				$("#long_url_input_div").hide();
+				$("#short_url_input_div").show();
+				$("#show_long_url").empty();
+				$("#long_url_input").val("");
+				$("#gen_short_url").attr("action", "short_url/create_short_url");
+			} else {
+				$("#long_url_input_div").show();
+				$("#short_url_input_div").hide();
+				$("#show_short_url").empty();
+				$("#short_url_input").val("");
+				$("#gen_short_url").attr("action", "short_url/search_for_long_url");
+			}
+		}
+	});
+</script>

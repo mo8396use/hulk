@@ -1,0 +1,27 @@
+<%= render :partial => "modal" %>
+<% if (!@short_url.nil? && @not_error) %>
+	<div class="show_url_detail">
+		<div class="row">
+			<label class="control-label col-md-2">短网址: </label>
+			<div class="control-label col-md-2">
+				<a href=<%=Rails.configuration.base_short_url+ @short_url.keyword%>><%=Rails.configuration.base_short_url+ @short_url.keyword%></a>
+			</div>
+		</div>
+		<div class="row">
+			<label class="control-label col-md-2">原网址: </label>
+			<div class="control-label col-md-2">
+				<a href=<%= @short_url.url %>><%= @short_url.url %></a>
+			</div>	
+		</div>
+	</div>
+<% end %>
+<script>
+	$(document).ready(function() {
+		if(<%= @short_url.nil? %>) {
+			myAlert("网址不存在或网址格式错误,请您仔细检查后重新输入!!!");
+		}
+		if(<%= !@not_error %>) {
+			myAlert("系统内部错误,请联系管理员处理!!!");
+		}
+	});
+</script>

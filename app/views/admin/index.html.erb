@@ -1,0 +1,25 @@
+<div class="panel-body">
+	<table id="short_url_table" class="table table-bordered">
+		<thead>
+			<th style="width:10%">ID</th>
+			<th style="width:50%">Url</th>
+			<th style="width:10%">短链关键字</th>
+			<th style="width:10%">访问次数</th>
+			<th style="width:20%">创建时间</th>
+		</thead>
+		<tbody>
+			<% @short_urls.each do |item| %>
+				<tr>
+					<td><%= item.id %></td>
+					<td><%= item.url %></td>
+					<td><%= item.keyword %></td>
+					<td><%= item.use_count %></td>
+					<td><%= Time.at(item.addtime).strftime("%Y-%m-%d %H:%M:%S") %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<% if !@short_urls.blank? %>
+	<%= will_paginate @short_urls, renderer: BootstrapPagination::Rails %>
+<% end %>

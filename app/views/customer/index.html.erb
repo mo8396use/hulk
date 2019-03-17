@@ -1,0 +1,27 @@
+<div class="benefits container" style="padding-top:20px">
+	<div class="container" style="padding-left: 15px;margin-left: 400px;">
+		<img src="/assets/hulk.ico" style="height: 300px;	">
+	</div>
+	<br />
+	<div class="">
+		<form class="form-horizontal" id="gen_short_url" method="post" action="customer/create_short_url" data-remote="true">
+			<div class="col-md-6 col-md-offset-3">
+				<div id="short_url_input_div">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon3">自定义短链:fdafd</span>
+						<input class="form-control" id="keyword" name="keyword" type="text" />
+					</div>
+					<br/>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon3">https://example.com</span>
+						<input class="form-control" id="long_url_input" name="long_url_input" type="text" />
+						<span class="input-group-btn">
+							<button class="btn btn-primary" style="background-color:#478A10;border-color: #478A10;"type="submit" id="btn_submit_long">网址缩短</button>
+						</span>
+					</div>
+					<div id="show_short_url"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

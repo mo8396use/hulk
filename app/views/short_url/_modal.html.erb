@@ -1,0 +1,21 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="alert-modal" aria-labelledby="alert-modal-label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">提示</h4>
+      </div>
+      <div class="modal-body" id="alert-modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">知道了</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+	function myAlert(msg) {
+		$("#alert-modal-body").html(msg);
+		$("#alert-modal").modal({keyboard: true});
+	};
+</script>
